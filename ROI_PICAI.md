@@ -17,18 +17,17 @@ The **whole-gland** masks are automated (Bosma et al.), so they can occasionally
 
 ---
 
-## How to get the masks
+## Where to get the masks (you need this separately)
 
-1. **Clone or download picai_labels**
-   - GitHub: [https://github.com/DIAGNijmegen/picai_labels](https://github.com/DIAGNijmegen/picai_labels)
-   - You need the folder: **`anatomical_delineations/whole_gland/AI/Bosma22b/`**
-   - Files are named `patient_id_study_id.nii.gz` (e.g. `10000_1000000.nii.gz`), matching your nnU-Net case IDs.
+The **prostate whole-gland masks are not in the main PI-CAI image dataset**. They live in the official annotations repo **picai_labels**.
 
-2. **On Kaggle**
-   - Add a dataset that contains picai_labels (or the `anatomical_delineations` folder), or clone the repo in a notebook and copy the `Bosma22b` folder into your working dir.
+| Option | What to do |
+|--------|------------|
+| **Easiest (Kaggle)** | In your ROI notebook, run the cell that **clones picai_labels from GitHub**. It runs `git clone https://github.com/DIAGNijmegen/picai_labels.git` and uses the folder `anatomical_delineations/whole_gland/AI/Bosma22b/`. No extra Kaggle dataset needed. |
+| **Kaggle dataset** | If you prefer to add an input: upload the [picai_labels](https://github.com/DIAGNijmegen/picai_labels) repo (or just the `anatomical_delineations` folder) as a Kaggle dataset, add it to your notebook, and set `MASKS_DIR` to the path to `Bosma22b` inside that dataset (e.g. `/kaggle/input/your-dataset/anatomical_delineations/whole_gland/AI/Bosma22b`). |
+| **Local** | Clone or download: [https://github.com/DIAGNijmegen/picai_labels](https://github.com/DIAGNijmegen/picai_labels). You need the folder **`anatomical_delineations/whole_gland/AI/Bosma22b/`**. Files are named `patient_id_study_id.nii.gz` (e.g. `10000_1000000.nii.gz`), matching your preprocessed case IDs. |
 
-3. **Path layout**
-   - Example: `PICAI_LABELS_ROOT/anatomical_delineations/whole_gland/AI/Bosma22b/10000_1000000.nii.gz`
+**Path layout:** `.../Bosma22b/10000_1000000.nii.gz` (one NIfTI per case).
 
 ---
 
