@@ -68,6 +68,10 @@ PI-CAI (MHA) → [1] Preprocess (picai_prep) → nnU-Net raw (T2W/ADC/HBV)
 | 4 | (in `fpn-mil.ipynb`) | Attention bar charts + T2W heatmaps |
 | – | `fpn-mil-retina.ipynb` | Alternative/experimental setup |
 
+Each exam contributes three co-registered modalities — **T2W**, **ADC**, and **HBV** — stacked as channels and sliced axially into MIL instances:
+
+![Preprocessed axial slices: T2W, ADC, HBV](assets/preprocessed-modalities.png)
+
 **Setup at a glance:** labels are csPCa = `1[ISUP ≥ 2]` from PI-CAI metadata; each axial slice = one instance, each case = one bag; two feature scales (C4/C5); two ISAB blocks per scale + gated attention (instance & cross-scale); trained 150 epochs with AdamW, cosine schedule, weighted BCE for class imbalance, best checkpoint by validation ROC-AUC. Tested on Kaggle (Python 3.10+).
 
 ---
